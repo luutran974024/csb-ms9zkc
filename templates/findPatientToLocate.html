@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient to Locate</title>
+</head>
+<body>
+    <h1>Please select the patient you want to get the location of:</h1>
+    <form action="/viewLocation" method="POST">
+        {% for line in patients %}
+            <input type="radio" id = "patient" name = "patient" value={{line.patient_user}}>
+            <label for="patient">{{line.patient_user}}</label><br>
+        {% endfor %}
+        {% if patients %}
+            <input type="submit" value="Get Location" />
+        {% endif %}
+    </form>
+    <a href="/home">Home</a>
+</body>
+<script>
+    var bt = document.getElementById('btSubmit');
+    if (txt.value != '') {
+        bt.disabled = false;
+    }
+    else {
+        bt.disabled = true;
+    }
+</script>
+</html>

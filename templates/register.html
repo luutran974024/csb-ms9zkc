@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form action="/registerAuth" method="POST">
+        <input type="text" name = "username" placeholder="username" required/> </br>
+        <input type="password" name = "password" placeholder="password" required/></br>
+        <input type="text" name = "firstName" placeholder="firstName" required/> </br>
+        <input type="text" name = "lastName" placeholder="lastName" required/> </br>
+        <input type="text" name = "phoneNumber" placeholder="phoneNumber" required/> </br>
+        <input type="text" name = "email" placeholder="email" required/> </br>
+        <h5>Please select your role:</h5>
+        <input type="radio" id="patient" name="role" value="patient">
+        <label for="patient">Patient</label><br>
+        <input type="radio" id="caretaker" name="role" value="caretaker">
+        <label for="caretaker">Caretaker</label><br><br>
+        <input type="submit" value = Register />
+        {% if error %}
+            <br><br>
+            <p><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+    </form>
+    <a href="/home">Home</a>
+</body>
+</html>
